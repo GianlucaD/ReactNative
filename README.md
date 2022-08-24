@@ -6,4 +6,4 @@ You can switch between different branches. Every branch has his own functionalit
 
 Branches:
 
-01-init Initial empty project 
+01-init Initial empty project with typescript 
