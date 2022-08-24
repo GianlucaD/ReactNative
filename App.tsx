@@ -4,6 +4,8 @@ import {
   Text,
   MD3LightTheme as DefaultTheme,
   Provider as PaperProvider,
+  IconButton,
+  MD3Colors,
 } from "react-native-paper";
 
 const theme = {
@@ -22,7 +24,12 @@ export default function App() {
         <Text variant="bodyMedium">
           We are using React Paper. Looks nice, isn't it?
         </Text>
-        <StatusBar style="auto" />
+        <IconButton
+          icon="thumb-up"
+          iconColor={MD3Colors.primary0}
+          size={40}
+          onPress={() => console.log("Pressed")}
+        />
       </View>
     </PaperProvider>
   );
