@@ -19,10 +19,9 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <Text variant="bodyMedium">
-          We are using React Paper. Looks nice, isn't it?
-        </Text>
-        <StatusBar style="auto" />
+        <View style={styles.red}></View>
+        <View style={styles.blue}></View>
+        <View style={styles.orange}></View>
       </View>
     </PaperProvider>
   );
@@ -31,8 +30,17 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  red: {
+    flex: 1,
+    backgroundColor: "red",
+  },
+  blue: {
+    flex: 1,
+    backgroundColor: "blue",
+  },
+  orange: {
+    flex: 1,
+    backgroundColor: "orange",
   },
 });
