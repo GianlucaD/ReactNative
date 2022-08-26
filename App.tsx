@@ -16,22 +16,27 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: "tomato",
-    secondary: "yellow",
+    primary: "#3498db",
+    secondary: "#f1c40f",
+    tertiary: "#a1b2c3",
   },
 };
 
 export default function App() {
   const [randomUser, setRandomUser] = useState<ResultsEntity>();
   const [loading, setLoading] = useState(true);
+  const [refresh, setRefresh] = useState(false);
   useEffect(() => {
+    setLoading(true);
     UserService()
       .getRandomUser()
       .then((data) => {
         setRandomUser(data);
+      })
+      .finally(() => {
         setLoading(false);
       });
-  }, [loading]);
+  }, [refresh]);
 
   return (
     <PaperProvider theme={theme}>
@@ -50,10 +55,10 @@ export default function App() {
         )}
         <IconButton
           icon="refresh"
-          iconColor={MD3Colors.primary0}
+          iconColor={theme.colors.primary}
           size={40}
           onPress={() => {
-            setLoading(true);
+            setRefresh(!refresh);
           }}
         />
       </View>
@@ -64,7 +69,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
   },
