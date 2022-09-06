@@ -7,6 +7,17 @@ import {
   IconButton,
   MD3Colors,
 } from "react-native-paper";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { HomeScreen } from "./HomeScreen";
+import { DetailScreen } from "./DetailScreen";
+
+type RootStackParamList = {
+  Home: {};
+  Details: {};
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 const theme = {
   ...DefaultTheme,
@@ -20,17 +31,20 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <View style={styles.container}>
-        <Text variant="bodyMedium">
-          We are using React Paper. Looks nice, isn't it?
-        </Text>
-        <IconButton
-          icon="thumb-up"
-          iconColor={MD3Colors.primary0}
-          size={40}
-          onPress={() => console.log("Pressed")}
-        />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: "Home" }}
+          />
+          <Stack.Screen
+            name="Details"
+            component={DetailScreen}
+            options={{ title: "Detail" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </PaperProvider>
   );
 }
