@@ -1,4 +1,8 @@
-import { NavigationContext, StackActions } from "@react-navigation/native";
+import {
+  NavigationContext,
+  StackActions,
+  TabActions,
+} from "@react-navigation/native";
 import { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Card, Paragraph, Text, Title } from "react-native-paper";
@@ -9,7 +13,7 @@ export function DetailScreen() {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation?.dispatch(StackActions.pop());
+        navigation?.dispatch(TabActions.jumpTo("Home"));
       }}
     >
       <Card>

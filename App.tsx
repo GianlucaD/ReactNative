@@ -8,7 +8,7 @@ import {
   MD3Colors,
 } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "./HomeScreen";
 import { DetailScreen } from "./DetailScreen";
 
@@ -17,7 +17,7 @@ type RootStackParamList = {
   Details: {};
 };
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 const theme = {
   ...DefaultTheme,
@@ -32,18 +32,18 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
+        <Tab.Navigator initialRouteName="Home">
+          <Tab.Screen
             name="Home"
             component={HomeScreen}
             options={{ title: "Home" }}
           />
-          <Stack.Screen
+          <Tab.Screen
             name="Details"
             component={DetailScreen}
             options={{ title: "Detail" }}
           />
-        </Stack.Navigator>
+        </Tab.Navigator>
       </NavigationContainer>
     </PaperProvider>
   );
