@@ -1,4 +1,8 @@
-import { NavigationContext, StackActions } from "@react-navigation/native";
+import {
+  NavigationContext,
+  StackActions,
+  TabActions,
+} from "@react-navigation/native";
 import { useContext } from "react";
 import { TouchableOpacity } from "react-native";
 import { Button, Card, Paragraph, Text, Title } from "react-native-paper";
@@ -7,7 +11,7 @@ export function HomeScreen() {
   const navigation = useContext(NavigationContext);
 
   function gotoDetails() {
-    navigation?.dispatch(StackActions.push("Details"));
+    navigation?.dispatch(TabActions.jumpTo("Details"));
   }
   return (
     <TouchableOpacity
