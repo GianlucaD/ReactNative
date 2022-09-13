@@ -8,16 +8,11 @@ import {
   MD3Colors,
 } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "./HomeScreen";
 import { DetailScreen } from "./DetailScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
-type RootStackParamList = {
-  Home: {};
-  Details: {};
-};
-
-const Tab = createBottomTabNavigator<RootStackParamList>();
+const Drawer = createDrawerNavigator();
 
 const theme = {
   ...DefaultTheme,
@@ -32,18 +27,10 @@ export default function App() {
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer>
-        <Tab.Navigator initialRouteName="Home">
-          <Tab.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: "Home" }}
-          />
-          <Tab.Screen
-            name="Details"
-            component={DetailScreen}
-            options={{ title: "Detail" }}
-          />
-        </Tab.Navigator>
+        <Drawer.Navigator initialRouteName="Home">
+          <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen name="Details" component={DetailScreen} />
+        </Drawer.Navigator>
       </NavigationContainer>
     </PaperProvider>
   );
