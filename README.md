@@ -6,4 +6,17 @@ You can switch between different branches. Every branch has his own functionalit
 
 Branches:
 
-01-init Initial empty project with typescript 
+**01-init:** Initial empty project with typescript
+
+**02-Flex:** example with flex css
+
+**03-ReactPaper:** Initial ReactPaper example
+
+**04-??**
+
+**05-Navigation:** Normal Navigation example
+
+**06-DrawerNavigation:** Drawer example
+
+**-7-??:**
+**08-CardList** simple Card example
