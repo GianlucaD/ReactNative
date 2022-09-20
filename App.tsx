@@ -14,18 +14,9 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: "tomato",
-    secondary: "yellow",
-  },
-};
-
 export default function App() {
   return (
-    <PaperProvider theme={theme}>
+    <PaperProvider theme={DefaultTheme}>
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
           <Drawer.Screen name="Home" component={HomeScreen} />
