@@ -12,8 +12,8 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: "tomato",
-    secondary: "yellow",
+    primary: "tomato", // overload primary color
+    secondary: "yellow", // overload secondary color
   },
 };
 
