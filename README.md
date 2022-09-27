@@ -18,6 +18,6 @@ Branches:
 
 **06-DrawerNavigation:** Drawer example
 
-**07-??:**
+**07-TabNavigation:** Navigation with Tabs in the bottom
 
 **08-CardList** simple Card example
