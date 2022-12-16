@@ -1,4 +1,5 @@
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   Text,
@@ -6,7 +7,9 @@ import {
   Provider as PaperProvider,
   IconButton,
   MD3Colors,
+  TextInput,
 } from "react-native-paper";
+import StorageService from "./services/StorageService";
 
 const theme = {
   ...DefaultTheme,
@@ -18,17 +21,28 @@ const theme = {
 };
 
 export default function App() {
+  const [likes, setLikes] = useState(0);
+  useEffect(() => {
+    return () => {
+      StorageService.getData("@mykey").then((value) => {
+        console.log("value = ", value);
+        if (value) setLikes(parseInt(value));
+      });
+    };
+  }, []);
+
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <Text variant="bodyMedium">
-          We are using React Paper. Looks nice, isn't it?
-        </Text>
+        <Text variant="bodyMedium">Stored value: {likes}</Text>
         <IconButton
           icon="thumb-up"
           iconColor={MD3Colors.primary0}
           size={40}
-          onPress={() => console.log("Pressed")}
+          onPress={() => {
+            setLikes(likes + 1);
+            StorageService.storeData("@mykey", likes.toString());
+          }}
         />
       </View>
     </PaperProvider>
