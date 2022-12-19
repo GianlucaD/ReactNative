@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import {
   IconButton,
-  MD3Colors, MD3LightTheme as DefaultTheme,
-  Provider as PaperProvider, Text
+  MD3Colors,
+  MD3LightTheme as DefaultTheme,
+  Provider as PaperProvider,
+  Text,
 } from "react-native-paper";
-import StorageService from "./services/StorageService";
+import { NotificationService } from "./services/NotificationService";
 
 const theme = {
   ...DefaultTheme,
@@ -17,27 +19,21 @@ const theme = {
 };
 
 export default function App() {
-  const [likes, setLikes] = useState(0);
-
-  useEffect(() => {
-    StorageService.getData("@mykey").then((value) => {
-      if (value) setLikes(Number(value));
-    });
-  }, []);
-
-  useEffect(() => {
-    StorageService.storeData("@mykey", likes.toString());
-  }, [likes])
+  const notify = () => {
+    NotificationService().notify();
+  };
 
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
-        <Text variant="bodyMedium">Stored value: {likes}</Text>
+        <Text variant="bodyMedium">Hit the icon for notification</Text>
         <IconButton
           icon="thumb-up"
           iconColor={MD3Colors.primary0}
           size={40}
-          onPress={() => { setLikes(likes + 1); }}
+          onPress={() => {
+            notify();
+          }}
         />
       </View>
     </PaperProvider>

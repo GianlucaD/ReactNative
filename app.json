@@ -17,6 +17,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "@notifee/react-native"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -24,7 +27,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.daffre.ny.myapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
