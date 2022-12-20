@@ -19,10 +19,6 @@ const theme = {
 };
 
 export default function App() {
-  const notify = () => {
-    NotificationService().notify();
-  };
-
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
@@ -32,7 +28,14 @@ export default function App() {
           iconColor={MD3Colors.primary0}
           size={40}
           onPress={() => {
-            notify();
+            NotificationService()
+              .notify()
+              .then((res) => {
+                console.log("looks like it worked");
+              })
+              .catch((err) => {
+                console.log("err", err);
+              });
           }}
         />
       </View>
