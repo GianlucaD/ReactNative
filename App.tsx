@@ -1,5 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import "intl";
 import {
   Text,
   MD3LightTheme as DefaultTheme,
@@ -7,7 +9,8 @@ import {
   IconButton,
   MD3Colors,
 } from "react-native-paper";
-
+import { de, enGB, registerTranslation } from "react-native-paper-dates";
+import TimePickerPage from "./TimePickerPage";
 const theme = {
   ...DefaultTheme,
   colors: {
@@ -15,9 +18,15 @@ const theme = {
     primary: "tomato", // overload primary color
     secondary: "yellow", // overload secondary color
   },
+  fonts: {
+    bodyMedium: "Roboto",
+  },
 };
 
 export default function App() {
+  registerTranslation("de", de), registerTranslation("en-GB", enGB);
+
+  const [visible, setVisible] = useState(false);
   return (
     <PaperProvider theme={theme}>
       <View style={styles.container}>
@@ -30,6 +39,7 @@ export default function App() {
           size={40}
           onPress={() => console.log("Pressed")}
         />
+        <TimePickerPage></TimePickerPage>
       </View>
     </PaperProvider>
   );
