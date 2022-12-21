@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import "intl";
+import "intl/locale-data/jsonp/de-CH";
 import {
   Text,
   MD3LightTheme as DefaultTheme,
