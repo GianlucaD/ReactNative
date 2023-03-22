@@ -20,4 +20,5 @@ Branches:
 
 **07-TabNavigation:** Navigation with Tabs in the bottom
 
-**08-CardList** simple Card example
+**08-i18n** Internationalisation example
+
