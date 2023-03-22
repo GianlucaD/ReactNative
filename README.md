@@ -22,3 +22,6 @@ Branches:
 
 **08-i18n** Internationalisation example
 
+**09-storage** Example for local storage
+
+**10-notification** Notification example
