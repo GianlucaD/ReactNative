@@ -15,7 +15,7 @@ const getData = async (key: string) => {
       return value;
     }
   } catch (e) {
-    // so something
+    // do something
   }
 };
 
